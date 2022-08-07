@@ -104,32 +104,25 @@ class Electroscooter(Transport):
 
 
 class Person:
-    def use_transport(self, transport: Transport, func):
-        if func == 1:
-            transport.start_engine()
-        elif func == 2:
-            transport.stop_engine()
-        elif func == 3:
-            transport.stop()
-        elif func == 4:
-            transport.move()
+    def use_transport(self, transport: Transport):
+        transport.start_engine()
+        transport.stop_engine()
+        transport.stop()
+        transport.move()
 
 
-chel = Person()
-lada = Car()
 
-chel.use_transport(lada, 3)
 
 # Отрезок кода для самопроверки.
-# Запустите его, после того как выполните задание
-# if __name__ == '__main__':
-#     boat = Boat()
-#     car = Car()
-#     kamikadze = Electroscooter()
-#
-#     person = Person()
-#     person.use_transport(boat)
-#     print('=' * 10)
-#     person.use_transport(car)
-#     print('=' * 10)
-#     person.use_transport(kamikadze)
+#  Запустите его, после того как выполните задание
+if __name__ == '__main__':
+    boat = Boat()
+    car = Car()
+    kamikadze = Electroscooter()
+
+    person = Person()
+    person.use_transport(boat)
+    print('=' * 10)
+    person.use_transport(car)
+    print('=' * 10)
+    person.use_transport(kamikadze)
