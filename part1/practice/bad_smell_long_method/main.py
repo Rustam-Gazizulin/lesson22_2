@@ -16,6 +16,7 @@ def get_users_list():
     data = _read(csv)
     print(data)
     data = _sort(data)
+    print(data)
     return _filter(data)
 
 

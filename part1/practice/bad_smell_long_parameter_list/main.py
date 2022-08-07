@@ -12,47 +12,23 @@
 
 class Unit:
 
-    def __init__(self, state, field, base_speed):
-        self.state = state
-        self.field = field
-        self.base_speed = base_speed
-
-
     def move(self, direction):
-        actual_speed = self._get_speed()
+        speed = self._get_speed()
+
         if direction == 'UP':
-            self.field.set.unit()
-
-
+            self.field.set.unit(y=self.y + speed, x=self.x, unit=self)
         elif direction == 'DOWN':
-                new_y = y_coord - speed
-                new_x = x_coord
+            self.field.set.unit(y=self.y - speed, x=self.x, unit=self)
         elif direction == 'LEFT':
-                new_y = y_coord
-                new_x = x_coord - speed
+            self.field.set.unit(y=self.y, x=self.x - speed, unit=self)
         elif direction == 'RIGTH':
-                new_y = y_coord
-                new_x = x_coord + speed
-        if crawl:
-            speed *= 0.5
-            if direction == 'UP':
-                new_y = y_coord + speed
-                new_x = x_coord
-            elif direction == 'DOWN':
-                new_y = y_coord - speed
-                new_x = x_coord
-            elif direction == 'LEFT':
-                new_y = y_coord
-                new_x = x_coord - speed
-            elif direction == 'RIGTH':
-                new_y = y_coord
-                new_x = x_coord + speed
+            self.field.set.unit(y=self.y, x=self.x + speed, unit=self)
 
     def _get_speed(self):
         if self.state == 'fly':
-            return self.base_speed * 1,2
+            return self.speed * 1,2
         elif self.state == 'crawl':
-            return self.base_speed * 0,5
+            return self.speed * 0,5
         else:
             raise ValueError('Неверное состояние игрока')
 

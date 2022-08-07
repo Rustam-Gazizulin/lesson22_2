@@ -44,7 +44,7 @@ class Person:
 qwerty = Person(42, 100500)
 
 print(qwerty.get_person_room())
-qwerty.get_city_population()
+print(qwerty.get_city_population())
 
 # TODO после выполнения задания попробуйте
 # сделать экземпляр класса person и вызвать новые методы.
